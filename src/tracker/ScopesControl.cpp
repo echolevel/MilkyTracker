@@ -311,12 +311,16 @@ void ScopesControl::paint(PPGraphicsAbstract* g)
 
 	// calculate shading for scopes
 	PPColor scopebColor = TrackerConfig::colorScopes, scopedColor = TrackerConfig::colorScopes;
-	// adjust dark color
-	scopedColor.scaleFixed(32768);
-	PPColor tempCol = PPUIConfig::getInstance()->getColor(PPUIConfig::ColorListBoxBackground);
-	tempCol.scaleFixed(32768);
-	scopedColor+=tempCol;
-	scopedColor.scaleFixed(49192);
+
+	// Bren July 2015
+/*
+// adjust dark color
+scopedColor.scaleFixed(32768);
+PPColor tempCol = PPUIConfig::getInstance()->getColor(PPUIConfig::ColorListBoxBackground);
+tempCol.scaleFixed(32768);
+scopedColor+=tempCol;
+scopedColor.scaleFixed(49192);
+ */
 
     const bool wrapped = isWrapped();
     

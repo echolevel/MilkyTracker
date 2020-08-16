@@ -39,7 +39,7 @@ PPButton::PPButton(pp_int32 id, PPScreen* parentScreen, EventListenerInterface* 
 	clickable(clickable),
 	update(update),
 	verticalText(false),
-	flat(false),
+	flat(true), // Bren August 2020
 	autoSizeFont(true),
 	offset(0,0),
 	invertShading(false),
@@ -92,6 +92,7 @@ void PPButton::paint(PPGraphicsAbstract* g)
 	}
 
 	PPColor bColor = *color;
+	PPColor bColor2 = *color; // Bren August 2020
 
 	g->setFont(font);
 
@@ -99,8 +100,16 @@ void PPButton::paint(PPGraphicsAbstract* g)
 	{			
 		// adjust bright color
 		bColor.scaleFixed(87163);
+		bColor2.scaleFixed(118000); // Bren July 2015
 		
-		g->setColor(bColor);
+		//g->setColor(bColor);
+
+		if (clickable) {
+			g->setColor(bColor2);
+		}
+		else {
+			g->setColor(bColor);
+		}
 		
 		g->drawHLine(location.x, location.x + size.width, location.y);
 		g->drawVLine(location.y, location.y + size.height, location.x);

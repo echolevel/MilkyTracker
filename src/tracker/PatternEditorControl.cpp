@@ -487,8 +487,8 @@ void PatternEditorControl::paint(PPGraphicsAbstract* g)
 					nsbColor.scaleFixed(60000);
 				}
 				
-				PPRect rect(px, py, px+slotSize, py + font->getCharHeight()+1);
-				g->fillVerticalShaded(rect, nsbColor, nsdColor, false);
+				//PPRect rect(px, py, px+slotSize, py + font->getCharHeight()+1);
+				//g->fillVerticalShaded(rect, nsbColor, nsdColor, false); // Bren Nov 2014 - remove shading on channel num
 				
 			}
 			

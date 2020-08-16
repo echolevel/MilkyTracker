@@ -374,12 +374,12 @@ void SampleEditorControl::paint(PPGraphicsAbstract* g)
 					
 					PPRect rect(location.x + xOffset + x1, location.y + yOffset - 1, location.x + xOffset + x2, location.y + yOffset - 1 + visibleHeight/2);
 				
-					g->fillVerticalShaded(rect, sourceColor, destColor, false);
-					
-					rect.y1+=visibleHeight/2;
-					rect.y2+=visibleHeight/2;
-					
-					g->fillVerticalShaded(rect, sourceColor, destColor, true);					
+					//g->fillVerticalShaded(rect, sourceColor, destColor, false); // Bren July 2015
+
+					rect.y1 += visibleHeight / 2;
+					rect.y2 += visibleHeight / 2;
+
+					//g->fillVerticalShaded(rect, sourceColor, destColor, true); // Bren July 2015
 				}
 			}
 		}
@@ -420,7 +420,10 @@ void SampleEditorControl::paint(PPGraphicsAbstract* g)
 	
 	mp_sint32 lasty = -(pp_int32)(sample->getSampleValue((pp_int32)(startPos*xScale))*scale);
 	
-	g->setColor(*borderColor);
+	// Bren July 2015
+   //g->setColor(*borderColor);
+	g->setColor(255, 255, 255);
+
 	g->setPixel(xOffset, yOffset);
 	
 	for (mp_sint32 x = 1; x < visibleWidth; x++)
@@ -431,7 +434,8 @@ void SampleEditorControl::paint(PPGraphicsAbstract* g)
 			{
 				g->setColor(255-dColor.r,255-dColor.g,255-dColor.b);
 				g->setPixel(xOffset + x, yOffset);
-				g->setColor(255, 255, 255);
+				//g->setColor(255, 255, 128); // Bren July 2015
+				g->setColor(221, 114, 46);
 			}
 			else
 			{
